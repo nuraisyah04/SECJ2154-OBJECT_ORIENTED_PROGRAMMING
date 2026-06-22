@@ -12,7 +12,7 @@ This page documents my personal reflections on the lab exercises completed throu
 
 ---
 
-## Lab Exercise 1 — Classes, Objects, and Encapsulation
+## Lab Exercise 2 — Classes, Objects, and Encapsulation
 
 ### What the Lab Covered
 
@@ -34,7 +34,7 @@ Initially, I mixed up the `this` keyword — I kept forgetting to use `this.name
 
 ---
 
-## Lab Exercise 2 — Share Store System (Class Design & Object Relationships)
+## Lab Exercise 3 — Share Store System (Class Design & Object Relationships)
 
 ### What the Lab Covered
 
@@ -56,7 +56,7 @@ I forgot to initialise the `ArrayList` inside the constructors initially, which 
 
 ---
 
-## Lab Exercise 3 — Class Relationships: Association, Aggregation, Composition, Inheritance & Polymorphism
+## Lab Exercise 4 — Class Relationships: Association, Aggregation, Composition, Inheritance & Polymorphism
 
 ### What the Lab Covered
 
@@ -84,7 +84,7 @@ The composition vs. aggregation distinction was confusing at first. The key that
 
 ---
 
-## Lab Exercise 4 — Arrays, ArrayLists, and Methods
+## Lab Exercise 5 — Arrays, ArrayLists, and Methods
 
 ### What the Lab Covered
 

@@ -1,9 +1,4 @@
 # 🎓 SECJ2154: Object-Oriented Programming 
-
-**Course:** Object-Oriented Programming (OOP) — Section 3, 2024/2025 Semester 2  
-**Lecturer:** Dr. Muhammad Khatibsyarbini  
-**Institution:** Universiti Teknologi Malaysia (UTM)
-
 ---
 
 ## Overview

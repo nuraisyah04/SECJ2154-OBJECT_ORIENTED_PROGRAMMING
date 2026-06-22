@@ -152,6 +152,3 @@ The most practically useful skills I take away are:
 These labs have given me a solid foundation that I am confident will carry into more advanced courses in software engineering and system design.
 
 ---
-
-*Last updated: June 2025*  
-*ePortfolio maintained on GitHub — [Dr-Khatib/OOP-Section3-2425-2](https://github.com/Dr-Khatib/OOP-Section3-2425-2)*

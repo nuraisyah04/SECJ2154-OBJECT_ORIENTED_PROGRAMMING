@@ -110,6 +110,34 @@ The anonymous array concept `new int[]{10, 20, 30, 40}` was unfamiliar — I had
 
 ---
 
+## Mini Project — Vehicle Rental System
+
+### What the Project Covered
+
+The mini project was a console-based **Vehicle Rental System** built entirely in Java — a single compilable file (`VehicleRentalSystem.java`) containing six classes: `Vehicle`, `Car`, `Motorcycle`, `Customer`, `Rental`, `VehicleRentalSystem`, plus two custom exceptions. The system lets users add/remove vehicles, register customers, rent and return vehicles, and view all active rentals through an interactive menu.
+
+### What I Learned
+
+**Inheritance and polymorphism in a real context.** `Car` and `Motorcycle` both extend `Vehicle` and each override `calculateRentalCost()` to add their own surcharge ($5/day for cars, $2/day for motorcycles). Seeing a `Vehicle` reference dynamically dispatch to the correct subclass method at runtime — the same call producing different cost results depending on the actual object type — made polymorphism feel genuinely useful rather than just theoretical.
+
+**Custom exceptions.** Writing `VehicleInUseException` and `VehicleNotFoundException` — both extending `Exception` — taught me that custom exceptions are not just about throwing errors; they communicate *intent*. A caller catching `VehicleInUseException` knows exactly what went wrong without parsing an error message string. This is far cleaner than throwing a generic `RuntimeException` with a descriptive string.
+
+**Class relationships at system scale.** The project used all three relationship types at once: `VehicleRentalSystem` *aggregates* `ArrayList<Vehicle>`, `ArrayList<Customer>`, and `ArrayList<Rental>` (they can exist independently); `Rental` *associates* a `Customer` with a `Vehicle` (neither owns the other); and `Car`/`Motorcycle` *inherit* from `Vehicle`. Having all of these in one codebase made it clear how different relationships serve different purposes in the same design.
+
+**`ArrayList` for dynamic collections.** Using `ArrayList<Vehicle>` meant the system could grow without pre-declaring a fixed array size. Methods like `findVehicleByRegistrationNumber()` iterating over the list with a for-each loop — and returning `null` if not found — became the standard pattern for lookup throughout the system.
+
+**Defensive programming with try-catch.** Every user-facing method (`rentVehicle`, `returnVehicle`, `removeVehicle`) wraps its logic in try-catch blocks, catching specific custom exceptions first and a generic `Exception` last as a safety net. Handling `InputMismatchException` in the main menu loop — resetting `choice = -1` to keep the loop running instead of crashing — taught me that robustness in interactive programs means anticipating every way a user can provide wrong input.
+
+**`@Override` and `toString()`.** Every class overrides `toString()` to produce formatted output. This meant `System.out.println(vehicle)` automatically printed the right details for both `Car` and `Motorcycle` objects without any type-checking — a clean demonstration of polymorphism applied to output formatting.
+
+### Challenges I Faced
+
+The menu's `Scanner` handling required careful attention. After `scanner.nextInt()`, a leftover newline in the buffer would cause subsequent `scanner.nextLine()` calls to read an empty string. Adding `scanner.nextLine()` immediately after every `nextInt()` or `nextDouble()` to consume the newline was an easy fix to miss the first time and a frustrating bug to trace.
+
+Designing the `Rental` class took some thought — it needed to hold references to both `Customer` and `Vehicle` without owning them, since both exist independently in the system's lists. Getting the association right (storing references, not copies) was the key decision that made return logic (`rentalToReturn.getVehicle().setAvailable(true)`) work correctly.
+
+---
+
 ## Overall Reflection
 
 Across these four lab exercises, I developed a progressively stronger grasp of Java and object-oriented design. If I were to summarise what changed most in my thinking:
